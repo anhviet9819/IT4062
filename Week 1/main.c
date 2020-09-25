@@ -107,7 +107,7 @@ void activeAccount(){   /// Check password correct ??
     char activationCode[30];
     int activate_count = 0;
 
-	printf("-----------Active account-----------");
+	printf("-----------Active account-----------\n");
     printf("Username: ");
     scanf("%s",username);
     printf("Password: ");
@@ -198,10 +198,10 @@ void search(){
 	printf("\n");
 	node *acc = find(username);
 	if(acc != NULL){
-		printf("Username: %s Status: %d\n", acc->username, acc->status);
-		if(acc->status == 1) printf("Account is active");
-		else if(acc->status == 0) printf("Account is blocked");
-		else printf("Account is not active");
+		//printf("Username: %s Status: %d\n", acc->username, acc->status);
+		if(acc->status == 1) printf("Account is active\n");
+		else if(acc->status == 0) printf("Account is blocked\n");
+		else printf("Account is not active\n");
 	}
 	else printf("Cannot find account\n");
 }
@@ -214,7 +214,7 @@ void changePassword(){
 	int countPassword = 0;
 	int countNewPassword = 0;
 
-	printf("-----------Change password-----------");
+	printf("-----------Change password-----------\n");
 	printf("Enter your username: ");
 	scanf("%s",username);
 
@@ -283,8 +283,7 @@ int menu(){
 	return choice;	
 }
 
-int main()
-{
+int main(){
 	openFile();
 
 	int choice;
@@ -315,22 +314,23 @@ int main()
 				changePassword();
 			}
 			else printf("Account is not sign in\n");
-		case 6: {
-			if(login_acc == NULL) printf("Account is not sign in\n"); //check sign in
-			else{
-				signout_acc = signout();
-				if(signout_acc)
-				if(strcmp(signout_acc->username,login_acc->username) == 0){
-					printf("Goodbye hust\n");
-					login_acc = NULL;
-				}
-				else printf("Cannot find account\n");
-			}			
-		} break;
-	}
+			break;
+		case 6: 
+			{
+				if(login_acc == NULL) printf("Account is not sign in\n"); //check sign in
+				else{
+					signout_acc = signout();
+					if(signout_acc)
+					if(strcmp(signout_acc->username,login_acc->username) == 0){
+						printf("Goodbye hust\n");
+						login_acc = NULL;
+					}
+					else printf("Cannot find account\n");
+				}			
+			} 
+			break;
+		}
 	}
 	while(choice > 0 && choice < 7);
-	
-
 	return 0;
 }

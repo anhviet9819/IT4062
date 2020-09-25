@@ -1,4 +1,5 @@
-hust11 hust11 2
+hust12 hust12 2
+hust11 hust11 0
 hust5 hust5 1
 hust2 hust2 0
 hust1 hust1 1
@@ -6,4 +7,5 @@ hust3 viet 0
 hust4 hust4 1
 hust6 hust6 1
 hust7 hust 0
-hust10 cd 2
+hust10 cd 0
+3 hust1 2
